@@ -8,8 +8,8 @@ import dagshub
 
 # connect to DAGsHub
 dagshub.init(
-    repo_owner="YOUR_GITHUB_USERNAME",
-    repo_name="student-mlops-project",
+    repo_owner="Atique7865",
+    repo_name="student-ml-project",
     mlflow=True
 )
 
