@@ -6,12 +6,15 @@ from sklearn.metrics import mean_squared_error
 import mlflow
 import dagshub
 
-# connect to DAGsHub
+# DAGsHub init
 dagshub.init(
     repo_owner="Atique7865",
     repo_name="student-ml-project",
     mlflow=True
 )
+
+# ADD THIS LINE (FIX)
+mlflow.set_experiment("student-result-experiment")
 
 # dataset
 data = {
