@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
@@ -13,7 +15,6 @@ dagshub.init(
     mlflow=True
 )
 
-# ADD THIS LINE (FIX)
 mlflow.set_experiment("student-result-experiment")
 
 # dataset
@@ -46,3 +47,14 @@ mlflow.sklearn.log_model(model, "model")
 mlflow.end_run()
 
 print("Training complete")
+
+# -------------------------
+# Command line prediction
+# -------------------------
+
+if len(sys.argv) > 1:
+    hours = float(sys.argv[1])
+    result = model.predict([[hours]])
+
+    print(f"Study Hours: {hours}")
+    print(f"Predicted Result: {result[0]:.2f}")
